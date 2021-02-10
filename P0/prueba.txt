@@ -1,0 +1,4 @@
+Prueba de creación
+Esta es una prueba de creación 
+de un archivo de texto desde 
+VSCode
