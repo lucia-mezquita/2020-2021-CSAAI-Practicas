@@ -1,8 +1,3 @@
- # Práctica 0
+README.md
 
-PROBANDO EL VDCODE...
--------------------------------
------SEGUNDO CAMBIO------------
--------------------------------
-
-....TERCER CAMBIO..............
+![](Ejercicio2-img1.gif)
