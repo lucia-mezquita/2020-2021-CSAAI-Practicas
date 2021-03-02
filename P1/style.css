@@ -37,10 +37,10 @@ body {
     
     
     }
-    
+
     div div {
     padding: 30px;
-    border: 2px solid blanchedalmond;
+    border: 2px solid rgba(233, 217, 194, 0.438);
     background-color: rgb(134, 194, 181);
     }
     
