@@ -12,7 +12,10 @@ body {
         background-size: cover;
         }
     
-    .item1 { grid-area: header; }
+    .item1 { 
+        padding: 25px;
+        grid-area: header; 
+    }
     .item2 { grid-area: menu; }
     .item3 { grid-area: main; }
     .item4 { grid-area: right; }
@@ -24,7 +27,6 @@ body {
       'header header header header header header'
       'menu menu main main right right'
       'menu menu main main footer footer';
-        
       grid-gap: 10px;
       padding: 10px;
     }
@@ -32,10 +34,8 @@ body {
     .grid-container > div {
       background-color: rgb(184, 211, 219);
       text-align: center;
-      padding: 20px 0;
-      font-size: 30px;
-    
-    
+      padding: 20px;
+
     }
 
     div div {
@@ -43,33 +43,21 @@ body {
     border: 2px solid rgba(233, 217, 194, 0.438);
     background-color: rgb(134, 194, 181);
     }
-    
-      hr { color:rgb(111, 122, 111);
         
-    }
+
       h1 {
         color: #27572b;
         font-family: verdana;
-        font-size: 100%;
-
+        font-size: 50 px;
       }
-      h2 {
-        color: #27572b;
-        font-family: verdana;
-        font-size: 45%;
-      }
-      h3 { color: black;
-        font-family:Tahoma;
-        font-size: 45%;
-        }
       p  {
         color: rgb(111, 122, 111);
         font-family: Verdana, Geneva, Tahoma, sans-serif;
-        font-size:45%;
+        font: size 30px;
       }
       li {color: rgb(111, 122, 111);
         font-family: Verdana, Geneva, Tahoma, sans-serif;
-        font-size: 45%;
+        font-size: 30 px;
       }
       #myHeader {
         background-color: lightblue;
