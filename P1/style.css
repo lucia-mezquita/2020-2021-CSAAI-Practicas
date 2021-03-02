@@ -22,8 +22,8 @@ body {
       display: grid;
       grid-template-areas:
       'header header header header header header'
-      'menu main main main right right'
-      'menu footer footer footer footer footer';
+      'menu menu main main right right'
+      'menu menu footer footer footer footer';
         
       grid-gap: 10px;
       padding: 10px;
@@ -50,26 +50,26 @@ body {
       h1 {
         color: #27572b;
         font-family: verdana;
-        font-size: 150%;
+        font-size: 100%;
 
       }
       h2 {
         color: #27572b;
         font-family: verdana;
-        font-size: 75%;
+        font-size: 45%;
       }
       h3 { color: black;
         font-family:Tahoma;
-        font-size: 75%;
+        font-size: 45%;
         }
       p  {
         color: rgb(111, 122, 111);
         font-family: Verdana, Geneva, Tahoma, sans-serif;
-        font-size:65%;
+        font-size:45%;
       }
       li {color: rgb(111, 122, 111);
         font-family: Verdana, Geneva, Tahoma, sans-serif;
-        font-size: 65%;
+        font-size: 45%;
       }
       #myHeader {
         background-color: lightblue;
