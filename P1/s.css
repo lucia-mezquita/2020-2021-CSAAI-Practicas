@@ -1,0 +1,79 @@
+body {
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(213, 230, 235);
+    background-size: cover;
+    }
+
+.item1 { grid-area: header; }
+.item2 { grid-area: menu; }
+.item3 { grid-area: main; }
+.item4 { grid-area: right; }
+.item5 { grid-area: footer; }
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'menu menu main main right right'
+    'menu menu main main right right'
+    'menu menu footer footer footer footer';
+    
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgb(184, 211, 219);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+
+
+}
+
+div div {
+    padding: 30px;
+    border: 2px solid blanchedalmond;
+    background-color: rgb(134, 194, 181);
+    }
+    
+      hr { color:rgb(111, 122, 111);
+        
+    }
+      h1 {
+        color: #27572b;
+        font-family: verdana;
+        font-size: 30%;
+
+      }
+      h2 {
+        color: #27572b;
+        font-family: verdana;
+        font-size: 40%;
+      }
+      h3 { color: black;
+        font-family:Tahoma;
+        font-size: 20%;
+        }
+      p  {
+        color: rgb(111, 122, 111);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size:20%;
+      }
+      li {color: rgb(111, 122, 111);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 20%;
+      }
+      #myHeader {
+        background-color: lightblue;
+        color: black;
+        padding: 10px;
+        text-align: center;
+        } 
+     label {
+        color: rgb(111, 122, 111);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size:20%;
+
+     }
