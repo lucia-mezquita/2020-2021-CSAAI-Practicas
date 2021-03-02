@@ -23,7 +23,7 @@ body {
 }
 
 .grid-container > div {
-  background-color: rgb(184, 211, 219);
+  background-color: rgba(255, 255, 255, 0.8);
   text-align: center;
   padding: 20px 0;
   font-size: 30px;
@@ -34,7 +34,7 @@ body {
 div div {
     padding: 30px;
     border: 2px solid blanchedalmond;
-    background-color: rgb(134, 194, 181);
+    background-color: rgba(255, 255, 255, 0.8);
     }
     
       hr { color:rgb(111, 122, 111);
@@ -43,29 +43,28 @@ div div {
       h1 {
         color: #27572b;
         font-family: verdana;
-        font-size: 30%;
+        font-size: 30px;
 
       }
       h2 {
         color: #27572b;
         font-family: verdana;
-        font-size: 40%;
+        font-size: 30px;
       }
       h3 { color: black;
         font-family:Tahoma;
-        font-size: 20%;
+        font-size: 13px;
         }
       p  {
         color: rgb(111, 122, 111);
         font-family: Verdana, Geneva, Tahoma, sans-serif;
-        font-size:20%;
+        font-size:13px;
       }
       li {color: rgb(111, 122, 111);
         font-family: Verdana, Geneva, Tahoma, sans-serif;
-        font-size: 20%;
+        font-size: 13px;
       }
       #myHeader {
-        background-color: lightblue;
         color: black;
         padding: 10px;
         text-align: center;
@@ -73,6 +72,6 @@ div div {
      label {
         color: rgb(111, 122, 111);
         font-family: Verdana, Geneva, Tahoma, sans-serif;
-        font-size:20%;
+        font: size 13px;;
 
      }
