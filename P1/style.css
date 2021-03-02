@@ -1,0 +1,28 @@
+body {
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(213, 230, 235);
+    
+      }
+      div div {
+        margin: 20px;
+        padding: 10px;
+        border: none;
+        background-color: rgb(184, 211, 219);
+      }
+      
+      h2 {
+        color: #27572b;
+        font-family: verdana;
+        font-size: 50%;
+      }
+      p  {
+        color: rgb(111, 122, 111);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 55%;
+      }
+      li {color: rgb(111, 122, 111);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 55%;
+      }
+  
