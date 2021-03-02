@@ -1,6 +1,6 @@
 body {
-    margin: 10px;
-    padding: 10px;
+    margin: 50px;
+    padding: 20px;
     height: 100%;
 }
 .bg {
@@ -60,7 +60,7 @@ div div {
       h2 {
         color: #27572b;
         font-family: verdana;
-        font-size: 30px;
+        font-size: 22px;
       }
       h3 { color: black;
         font-family:Tahoma;
