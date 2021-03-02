@@ -48,16 +48,16 @@ body {
       h1 {
         color: #27572b;
         font-family: verdana;
-        font-size: 50 px;
+        font-size: 30px;
       }
       p  {
         color: rgb(111, 122, 111);
         font-family: Verdana, Geneva, Tahoma, sans-serif;
-        font: size 30px;
+        font: size 15px;
       }
       li {color: rgb(111, 122, 111);
         font-family: Verdana, Geneva, Tahoma, sans-serif;
-        font-size: 30 px;
+        font-size: 15 px;
       }
       #myHeader {
         background-color: lightblue;
