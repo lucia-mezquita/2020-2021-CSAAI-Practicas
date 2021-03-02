@@ -26,7 +26,7 @@ body {
   display: grid;
   grid-template-areas:
   'header header header header header header'
-  'menu main main main right right'
+  'menu main main main main right'
   'menu footer footer footer footer footer';
     
   grid-gap: 10px;
@@ -66,6 +66,11 @@ div div {
         font-family:Tahoma;
         font-size: 13px;
         }
+      h4 {color: rgb(131, 156, 131);
+        font-family: verdana;
+        font-size: 15px;
+
+      }
       p  {
         color: rgb(111, 122, 111);
         font-family: Verdana, Geneva, Tahoma, sans-serif;
