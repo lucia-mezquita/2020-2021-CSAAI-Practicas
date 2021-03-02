@@ -76,9 +76,11 @@ div div {
         font-size: 13px;
       }
       #myHeader {
+        font-size: 55px;
         color: black;
         padding: 10px;
         text-align: center;
+        font-family: 'Times New Roman';
         } 
      label {
         color: rgb(111, 122, 111);
