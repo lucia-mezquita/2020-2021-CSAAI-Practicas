@@ -1,98 +1,74 @@
 console.log("Ejecutando JS...");
 
+
+//-- Elementos de la interfaz de la calculadora
 display = document.getElementById("display")
+boton1 = document.getElementById("boton1")
+boton2 = document.getElementById("boton2")
 suma = document.getElementById("suma")
 igual = document.getElementById("igual")
 clear = document.getElementById("clear")
 
-//-- Estados de la calculadora
-const ESTADO = {
-    INIT: 0,
-    OP1: 1,
-    OPERATION: 2,
-    OP2: 3
-}
- 
- //-- Variable de estado de la calculadora
- //-- Al comenzar estamos en el estado incial
- let estado = ESTADO.INIT;   
+//-- Funciones de retrollamada de los botones
+//-- Cada vez que se aprieta un boton se actua
+//-- sobre la cadena: añadiendo digito, operador +
+//-- poniendo a cero o evaluando la expresión
 
-//-- Función de retrollamada de los digitos
-function digito(ev)
-{
-    //-- Se ha recibido un dígito
-    //-- Según en qué estado se encuentre la calculadora
-    //-- se hará una cosa u otra
-
-    //-- Si es el primer dígito, no lo añadimos,
-    //-- sino que lo mostramos directamente en el display
-    if (estado == ESTADO.INIT) {
-
-        display.innerHTML = ev.target.value;
-
-        //-- Pasar al siguiente estado
-        estado = ESTADO.OP1;
-
-    } else {
-       
-        //--En cualquier otro estado lo añadimos
-        display.innerHTML += ev.target.value;
-
-        //-- Y nos quedamos en el mismo estado
-        //-- Ojo! Este ejemplo sólo implementa el primer
-        //-- estado del diagrama. Habría que tener en 
-        //-- cuenta el resto... lo debes hacer en tu práctica
-    } 
-    
+// -- Insertar digito 1
+button1.onclick = () => {
+  display.innerHTML += button1.value;
 }
 
-
-//-- Obtener una colección con todos los elementos
-//-- de la clase digito
-digitos = document.getElementsByClassName("digito")
-
-//-- Establecer la misma función de retrollamada
-//-- para todos los botones de tipo dígito
-for (let boton of digitos) {
-
-    //-- Se ejecuta cuando se pulsa un boton
-    //-- que es un dígito. Para que el código sea 
-    //-- mas legible la función de retrollamada se
-    //-- escribe como una función normal (digito)
-    boton.onclick = digito;
+//-- Insertar digito 2
+button2.onclick = () => {
+  display.innerHTML += button2.value;
 }
+//-- Insertar digito 3
+button3.onclick = () => {
+    display.innerHTML += button3.value;
+  }
 
-//-------- Resto de funciones de retrollamada
+//-- Insertar digito 4
+button4.onclick = () => {
+    display.innerHTML += button4.value;
+  }
 
-//-- Operación de sumar
-suma.onclick = (ev) => {
+//-- Insertar digito 5
+button5.onclick = () => {
+    display.innerHTML += button5.value;
+  }
 
-    //-- Insertar simbolo de sumar
-    display.innerHTML += ev.target.value;
+//-- Insertar digito 6
+button6.onclick = () => {
+    display.innerHTML += button6.value;
+  }
 
-    //-- ¡Ojo! Aquí se inserta el + siempre!
-    //-- Para que la calculadora funcione bien
-    //-- sólo se debe permitir insertar el operador
-    //-- en el estado OP1, y debe cambiar el estado
-    //-- a OPERATION (según el diagrama de estados)
-  
+//-- Insertar digito 7
+button7.onclick = () => {
+    display.innerHTML += button7.value;
+  }
+
+  //-- Insertar digito 8
+button8.onclick = () => {
+    display.innerHTML += button8.value;
+  }
+//-- Insertar digito 9
+button9.onclick = () => {
+    display.innerHTML += button9.value;
+  }
+
+
+//-- Insertar simbolo de sumar
+plus.onclick = () => {
+  display.innerHTML += plus.value;
 }
 
 //-- Evaluar la expresion
-igual.onclick = () => {
-  
-    //-- Calcular la expresión y añadirla al display
-    display.innerHTML = eval(display.innerHTML);
-
-    //-- ¡Ojo! Aquí se hace siempre!
-    //-- Sólo se debe permitar que eso se haga
-    //-- si se está en el estado final (OP2)
-  
+equal.onclick = () => {
+  display.innerHTML = eval(display.innerHTML);
 }
 
 //-- Poner a cero la expresion
-//-- Y volver al estado inicial
 clear.onclick = () => {
   display.innerHTML = "0";
-  estado = ESTADO.INIT;
 }
