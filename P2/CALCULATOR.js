@@ -3,16 +3,29 @@ console.log("Ejecutando JS...");
 
 //-- Elementos de la interfaz de la calculadora
 display = document.getElementById("display")
-boton1 = document.getElementById("boton1")
-boton2 = document.getElementById("boton2")
-suma = document.getElementById("suma")
-igual = document.getElementById("igual")
-clear = document.getElementById("clear")
+button1 = document.getElementById("button1") 
+button2 = document.getElementById("button2") 
+button3 = document.getElementById("button3")
+button4 = document.getElementById("button4")
+button5 = document.getElementById("button5")
+button6 = document.getElementById("button6")
+button7 = document.getElementById("button7")
+button8 = document.getElementById("button8")
+button9 = document.getElementById("button9")
+button0 = document.getElementById("button0")
+plus = document.getElementById("plus")
+equal = document.getElementById("equal")
+CLEAR = document.getElementById("CLEAR")
+dot = document.getElementById("dot")
+DELETE = document.getElementById("DELETE")
+minus = document.getElementById("minus")
+
 
 //-- Funciones de retrollamada de los botones
 //-- Cada vez que se aprieta un boton se actua
 //-- sobre la cadena: añadiendo digito, operador +
 //-- poniendo a cero o evaluando la expresión
+
 
 // -- Insertar digito 1
 button1.onclick = () => {
@@ -57,18 +70,52 @@ button9.onclick = () => {
     display.innerHTML += button9.value;
   }
 
+//-- Insertar digito 0
+button0.onclick = () => {
+    display.innerHTML += button0.value;
+  } 
 
 //-- Insertar simbolo de sumar
 plus.onclick = () => {
   display.innerHTML += plus.value;
 }
 
+//-- Insertar simbolo de restar
+minus.onclick = () => {
+    display.innerHTML += minus.value;
+  }
+
 //-- Evaluar la expresion
 equal.onclick = () => {
   display.innerHTML = eval(display.innerHTML);
 }
 
+//-- Multiplicacion
+multiply.onclick = () =>{
+    display.innerHTML += multiply.value;
+}
+
+//-- Division
+divide.onclick = () =>{
+    display.innerHTML += divide.value;
+} 
+
+//-- Numero PI
+pi.onclick = () =>{
+    display.innerHTML += pi.value;
+} 
+
+//-- Eliminar solo un digito
+DELETE.onclick = () => {
+    display.innerHTML = display.innerHTML.slice(0,-1);
+}
+
+//-- punto
+dot.onclick = () =>{
+    display.innerHTML += dot.value;
+}
+
 //-- Poner a cero la expresion
-clear.onclick = () => {
+CLEAR.onclick = () => {
   display.innerHTML = "0";
 }
