@@ -19,6 +19,7 @@ CLEAR = document.getElementById("CLEAR")
 dot = document.getElementById("dot")
 DELETE = document.getElementById("DELETE")
 minus = document.getElementById("minus")
+sqrt = document.getElementById("sqrt")
 
 
 
@@ -121,4 +122,9 @@ dot.onclick = () =>{
 //-- Poner a cero la expresion
 CLEAR.onclick = () => {
   display.innerHTML = "0";
+}
+
+//-- Raiz cuadrada en la expresion
+sqrt.onclick = () => {
+  display.innerHTML = Math.sqrt(display.innerHTML);
 }
