@@ -21,10 +21,13 @@ DELETE = document.getElementById("DELETE")
 minus = document.getElementById("minus")
 
 
+
 //-- Funciones de retrollamada de los botones
 //-- Cada vez que se aprieta un boton se actua
 //-- sobre la cadena: añadiendo digito, operador +
 //-- poniendo a cero o evaluando la expresión
+
+
 
 
 // -- Insertar digito 1
@@ -105,12 +108,12 @@ pi.onclick = () =>{
     display.innerHTML += pi.value;
 } 
 
-//-- Eliminar solo un digito
+//-- Borra ultimo caracter introducido
 DELETE.onclick = () => {
     display.innerHTML = display.innerHTML.slice(0,-1);
 }
 
-//-- punto
+//-- Punto
 dot.onclick = () =>{
     display.innerHTML += dot.value;
 }
