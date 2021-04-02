@@ -1,34 +1,58 @@
-body {
-    
-  background-color:rgb(205, 233, 205);
-  background-size: cover; 
-}
+  body {
+    background-image: url(workplace.jpg);
+    background-size: cover; 
+  }
+  h1{
+    text-align: center;
+    color:rgb(51, 53, 49);
+          font-family: sans-serif;
+          font-size: 20px;
+  }
+
+  h2{
+    text-align: right;
+      height: 25px;
+      border-radius: 5px;
+  }
+
+    #display{
+      background-color:  rgba(136, 174, 175, 0.356);
+      padding: 15px;
+      border: 1px solid;
+      border-color:rgba(255, 235, 205, 0.397);
+    }
+
 
   p {
     text-align: center;
   }
-  
+
   button{
-      height: 45px;
-      width: 45px;
-      border: 3px solid rgb(253, 254, 255);
+      margin-top: 10px;
+      border: 1px;
+      height: 40px;
+      width: 47px;
+      background-color: #e3ddd3;
+      border-color:lightslategrey;
       font-weight: bold;
       margin-left:4px;
       border-radius: 5px;
+      color: rgb(51, 53, 49);
+      font-size: 14px;
   }
 
-  
-
   .table {
+    margin-top: 150px;
     display: block;  
     margin: auto;
     border: solid;
-    border:double;
-    border-color: cadetblue;
+    border:medium;
+    border-color: lightslategrey;
     border-width: 10px;
-    background-color:rgb(226, 194, 194);
+    border: 2px solid rgba(0, 0, 0, 0.705);
+    background-color:rgb(163,145,147);
     padding: 30px;
     width: 280px;
-    height: 400px;
+    height: 370px;
     border-radius: 5px;
   }
