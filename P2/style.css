@@ -1,6 +1,7 @@
   body {
     background-image: url(workplace.jpg);
     background-size: cover; 
+    background-size: no-repeat;
   }
   h1{
     text-align: center;
