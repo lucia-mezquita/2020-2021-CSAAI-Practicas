@@ -1,130 +1,68 @@
 console.log("Ejecutando JS...");
 
-
-//-- Elementos de la interfaz de la calculadora
 display = document.getElementById("display")
-button1 = document.getElementById("button1") 
-button2 = document.getElementById("button2") 
-button3 = document.getElementById("button3")
-button4 = document.getElementById("button4")
-button5 = document.getElementById("button5")
-button6 = document.getElementById("button6")
-button7 = document.getElementById("button7")
-button8 = document.getElementById("button8")
-button9 = document.getElementById("button9")
-button0 = document.getElementById("button0")
-plus = document.getElementById("plus")
 equal = document.getElementById("equal")
-CLEAR = document.getElementById("CLEAR")
-dot = document.getElementById("dot")
 DELETE = document.getElementById("DELETE")
-minus = document.getElementById("minus")
-sqrt = document.getElementById("sqrt")
+CLEAR = document.getElementById("CLEAR")
 
+//-- CREAR DOS ARRAYS PARA LOS DIGITOS Y OPERACIONES
+//-- CLASS DIGIT Y OPERATION
 
+digit = document.getElementsByClassName("digit")
+operation = document.getElementsByClassName("operation")
 
-//-- Funciones de retrollamada de los botones
-//-- Cada vez que se aprieta un boton se actua
-//-- sobre la cadena: añadiendo digito, operador +
-//-- poniendo a cero o evaluando la expresión
-
-
-
-
-// -- Insertar digito 1
-button1.onclick = () => {
-  display.innerHTML += button1.value;
+for (i=0; i<digit.length; i++){
+  digit[i].onclick = (ev) => {
+    if (display.innerHTML == "0"){
+      display.innerHTML = ev.target.value;
+    }else{
+      display.innerHTML += ev.target.value;
+    }
+  click.play();
+  }
 }
 
-//-- Insertar digito 2
-button2.onclick = () => {
-  display.innerHTML += button2.value;
-}
-//-- Insertar digito 3
-button3.onclick = () => {
-    display.innerHTML += button3.value;
-  }
 
-//-- Insertar digito 4
-button4.onclick = () => {
-    display.innerHTML += button4.value;
+for (i=0; i<operation.length; i++){
+  operation[i].onclick = (ev) => {
+    if (display.innerHTML == "0"){
+      display.innerHTML = ev.target.value;
+    }else{
+      display.innerHTML += ev.target.value;
+    }
+    click.play();
   }
-
-//-- Insertar digito 5
-button5.onclick = () => {
-    display.innerHTML += button5.value;
-  }
-
-//-- Insertar digito 6
-button6.onclick = () => {
-    display.innerHTML += button6.value;
-  }
-
-//-- Insertar digito 7
-button7.onclick = () => {
-    display.innerHTML += button7.value;
-  }
-
-  //-- Insertar digito 8
-button8.onclick = () => {
-    display.innerHTML += button8.value;
-  }
-//-- Insertar digito 9
-button9.onclick = () => {
-    display.innerHTML += button9.value;
-  }
-
-//-- Insertar digito 0
-button0.onclick = () => {
-    display.innerHTML += button0.value;
-  } 
-
-//-- Insertar simbolo de sumar
-plus.onclick = () => {
-  display.innerHTML += plus.value;
 }
 
-//-- Insertar simbolo de restar
-minus.onclick = () => {
-    display.innerHTML += minus.value;
+
+//-- Borra ultimo caracter introducido y de la operacion tmb.
+DELETE.onclick = () => {
+  if (display.innerHTML == "0") {
+    display.innerHTML = "0";
+  }else if (display.innerHTML == "") {
+    display.innerHTML = "0";
+  }else{
+    display.innerHTML = display.innerHTML.slice(0,-1)
   }
+  click.play();}
 
 //-- Evaluar la expresion
 equal.onclick = () => {
   display.innerHTML = eval(display.innerHTML);
-}
-
-//-- Multiplicacion
-multiply.onclick = () =>{
-    display.innerHTML += multiply.value;
-}
-
-//-- Division
-divide.onclick = () =>{
-    display.innerHTML += divide.value;
-} 
-
-//-- Numero PI
-pi.onclick = () =>{
-    display.innerHTML += pi.value;
-} 
-
-//-- Borra ultimo caracter introducido
-DELETE.onclick = () => {
-    display.innerHTML = display.innerHTML.slice(0,-1);
-}
-
-//-- Punto
-dot.onclick = () =>{
-    display.innerHTML += dot.value;
-}
+  click.play();}
 
 //-- Poner a cero la expresion
 CLEAR.onclick = () => {
   display.innerHTML = "0";
+  click.play();
 }
 
 //-- Raiz cuadrada en la expresion
 sqrt.onclick = () => {
   display.innerHTML = Math.sqrt(display.innerHTML);
+  click.play();
 }
+
+
+
+
