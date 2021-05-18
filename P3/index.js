@@ -1,5 +1,7 @@
 const canvas = document.getElementById("canvas");
 
+
+//definimos el tamaño de nuestro canvas
 canvas.width = 600;
 canvas.height = 300;
 
