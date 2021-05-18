@@ -1,0 +1,12 @@
+/* Fondo de la página */
+body {
+    background-color: lightblue;
+}
+
+/* Estilo para el canvas: Negro */
+#canvas {
+    background-color: rgb(83, 91, 94);
+    border-style: solid;
+    border-width: 3px;
+    margin: 0 auto;
+}
