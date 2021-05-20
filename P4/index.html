@@ -11,40 +11,45 @@
 <body>
 
     <H1>PROCESADOR DE IMAGENES</H1>
+
     <div class="images">
         <p>IMAGEN ORIGINAL</p>
-        <img src="marruecos1.JPG" id="original"
+        <img src="marruecos1.JPG" id="imagesrc"
             width="300"
             height="200">
         
         <p>IMAGEN MANIPULADA</p>
-        <canvas id="canvas"
-            width="300"
-            height="200"></canvas>
+        <canvas id="canvas"></canvas>
     </div>
 
     <div class="seleccion">
         <p>Selecciona la imagen a tratar</p>
-        <button id="imagen1"><img src="paris.JPG" width="400px"></button>
-        <button id="imagen2"><img src="marruecos2.JPG" width="200px"></button>
-        <button id="imagen3"><img src="marruecos1.JPG" width="400px"></button>
+        <button type="button" id="image1">Opcion 1</button>
+        <button type="button" id="image2">Opcion 2</button>
+        <button type="button" id="image3">Opcion 3</button>
     </div>
 
 
-    <div id=buttons>
-        <button id ="original">ORIGINAL</button>
-        <button id ="espejo">ESPEJO</button>
-        <button id ="negative">NEGATIVO</button>
-        <button id ="gris">gris</button>
+    <div id=opciones>
+        <button type="button" id ="original">ORIGINAL</button>
+        <button type="button" id ="mirror">ESPEJO</button>
+        <button type="button" id ="negative">NEGATIVO</button>
+        <button type="button" id ="gray">ESCALA DE GRISES</button>
     </div>
 
     <div id="deslizador">
-        <p>GREEN</p>
-        <input type="range" id="verde" min="0" max="255" value="255"/>
         <p>RED</p>
-        <input type="range" id="rojo" min="0" max="255" value="255"/>
+        <input type="range" id="R" min="0" max="255" value="255"/>
+        <p id="Range_Value_R">255</p>
+        
+
+        <p>GREEN</p>
+        <input type="range" id="G" min="0" max="255" value="255"/>
+        <p id="Range_Value_G">255</p>
+        
         <p>BLUE</p>
-        <input type="range" id="azul" min="0" max="255" value="255"/>
+        <input type="range" id="B" min="0" max="255" value="255"/>
+        <p id="Range_Value_B">255</p>
     </div>
 </body>
 </html>
