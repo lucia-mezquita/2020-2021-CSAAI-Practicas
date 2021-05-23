@@ -9,47 +9,56 @@
     <title>  </title>
 </head>
 <body>
-
+<div id="contenedor">
+    <div id="cabecera"></div>
     <H1>PROCESADOR DE IMAGENES</H1>
 
-    <div class="images">
-        <p>IMAGEN ORIGINAL</p>
-        <img src="marruecos1.JPG" id="imagesrc"
-            width="300"
-            height="200">
+    <div id="contenido">
+        <div class="original">
+            <p>IMAGEN ORIGINAL</p>
+            <img src="marruecos1.JPG" id="imagesrc">
+        </div>
         
+        <div class="manipulada">
         <p>IMAGEN MANIPULADA</p>
         <canvas id="canvas"></canvas>
+        </div>
+
     </div>
 
-    <div class="seleccion">
-        <p>Selecciona la imagen a tratar</p>
-        <button type="button" id="image1">Opcion 1</button>
-        <button type="button" id="image2">Opcion 2</button>
-        <button type="button" id="image3">Opcion 3</button>
+    <div id="menu">
+        <button id = "image1"><img src="marruecos1.JPG" width="250px"/></button>
+        <br><br>
+        <button id = "image2"><img src="IMG.JPG" width="250px"/></button>
+        <br><br>
+        <button id = "image3"><img src="paris.JPG" width="250px"/></button>
+
+        <div class="botones">
+            <br>
+            <button type="button" id ="original">ORIGINAL</button>
+            <button type="button" id ="negative">NEGATIVO</button>
+            <button type="button" id ="color">COLORES</button>
+            <button type="button" id ="mirror">ESPEJO</button>
+            <button type="button" id ="gray">ESCALA DE GRISES</button>
+        </div>
     </div>
 
+    <div id="pie">
+        <div id="deslizador">
+        <br>
+            <P>Establece el umbral de ROJO:</P>
+            <input type="range" id="R" min="0" max="255" value="255"/>
+            <p id="Range_Value_R">00</p>
 
-    <div id=opciones>
-        <button type="button" id ="original">ORIGINAL</button>
-        <button type="button" id ="mirror">ESPEJO</button>
-        <button type="button" id ="negative">NEGATIVO</button>
-        <button type="button" id ="gray">ESCALA DE GRISES</button>
+            <P>Establece el umbral de VERDE:</P>
+            <input type="range" id="G" min="0" max="255" value="255"/>
+            <p id="Range_Value_G">00</p>
+            
+            <P>Establece el umbral de AZUL:</P>
+            <input type="range" id="B" min="0" max="255" value="255"/>
+            <p id="Range_Value_B">00</p>
     </div>
-
-    <div id="deslizador">
-        <p>RED</p>
-        <input type="range" id="R" min="0" max="255" value="255"/>
-        <p id="Range_Value_R">255</p>
-        
-
-        <p>GREEN</p>
-        <input type="range" id="G" min="0" max="255" value="255"/>
-        <p id="Range_Value_G">255</p>
-        
-        <p>BLUE</p>
-        <input type="range" id="B" min="0" max="255" value="255"/>
-        <p id="Range_Value_B">255</p>
-    </div>
+</div>
+</div>
 </body>
 </html>

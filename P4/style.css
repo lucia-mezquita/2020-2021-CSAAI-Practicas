@@ -1,0 +1,59 @@
+body {
+    background-color:coral;
+
+}
+
+h1{ text-align: center;
+} 
+canvas { 
+    width: 500px;
+        height: 350px;
+    }
+
+h2{ text-align: center;
+} 
+
+p{ text-align: center;
+font-size: 20px;
+font-style: italic;
+}
+#imagesrc { width: 500px;
+    height: 350px;
+    }
+
+
+#cabecera {
+    padding:10px;
+  }
+
+#contenedor {
+    margin:auto;
+    width:1000px;
+    
+  }
+
+#contenido {
+    float:left;
+    padding:10px;
+  }
+
+#menu {
+    float:left;
+    padding: 50px;
+    width: 250px;
+  }
+  #deslizador { 
+    padding:10px;
+    text-align:center;
+  }
+
+  button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 18px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}

@@ -5,16 +5,17 @@ const canvas = document.getElementById('canvas');
 const img = document.getElementById('imagesrc');
 const ctx = canvas.getContext('2d');
 
-
-
+//--BOTONES
 const imagen1 = document.getElementById('image1');
 const imagen2 = document.getElementById('image2');
 const imagen3 = document.getElementById('image3');
 
 const original = document.getElementById('original');
-const mirror = document.getElementById('mirror');
 const negative = document.getElementById('negative');
+const color = document.getElementById('color');
+const mirror = document.getElementById('mirror');
 const gray = document.getElementById('gray');
+const rotate = document.getElementById('rotate');
 
 
 
@@ -22,15 +23,15 @@ const gray = document.getElementById('gray');
 const R = document.getElementById('R');
 const G = document.getElementById('G');
 const B = document.getElementById('B');
-const gray = document.getElementById('gray');
 
 
-//--Valores del deslizador
+//--RANGO DE VALORES PARA  deslizador
 const Range_Value_R = document.getElementById('Range_Value_R');
 const Range_Value_G = document.getElementById('Range_Value_G');
 const Range_Value_B = document.getElementById('Range_Value_B');
-const range_value_gray = document.getElementById('Range_Value_G');
+
  
+
 
 
 //-- Función de retrollamada de imagen cargada
@@ -52,22 +53,69 @@ img.onload = function () {
 };
 
 
-//-- Funcion de retrollamada del deslizador
-
-//Funcion de retrollamada de los deslizadores
-R.oninput = () => {
-  colors();
+//--Funcion creada para las diferentes elecciones de imagenes 
+image1.onclick = () => {
+  img.src="marrueco1.JPG";
 }
-G.oninput = () => {
-  colors();
+image2.onclick = () => {
+  img.src="IMG.JPG";
 }
-B.oninput = () => {
-  colors();
+image3.onclick = () => {
+  img.src="paris.JPG";
 }
 
+function colors(){
+
+  ctx.drawImage(img, 0,0);
+  
+  //-- Obtener la imagen del canvas en pixeles
+  let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  
+  //-- Obtener el array con todos los píxeles
+  let data = imgData.data
+
+  //-- Mostrar el nuevo valor del deslizador
+  Range_Value_R.innerHTML = R.value;
+  Range_Value_G.innerHTML = G.value;
+  Range_Value_B.innerHTML = B.value;
+
+
+  
+  //-- Obtener el umbral de rojo del desliador
+  var umbral_R = R.value;
+  var umbral_G = G.value;
+  var umbral_B = B.value;
+
+  //-- Filtrar la imagen según el nuevo umbral
+  for (let i = 0; i < data.length; i+=4) {
+    if (data[i] > umbral_R){
+      data[i] = umbral_R;
+    }
+    if (data[i+1] > umbral_G){
+      data[i+1] = umbral_G;
+    }
+    if (data[i+2] > umbral_B){
+      data[i+2] = umbral_B;
+    }
+    
+  }
+  //-- Poner la imagen modificada en el canvas
+  ctx.putImageData(imgData, 0, 0);
+}
+
+//-- Funcion de retrollamada de los deslizadores
+  R.oninput = () => {
+    colors();
+  }
+  G.oninput = () => {
+    colors();
+  }
+  B.oninput = () => {
+    colors();
+  }
 
 //--Duncion habilitada para los deslizadores
-function dnables (){
+function enabled (){
   R.disabled = false;
   G.disabled = false;
   B.disabled = false;
@@ -81,49 +129,95 @@ function disabled(){
 }
 
 
-deslizador.oninput = () => {
 
-
-
-
-  //-- Mostrar el nuevo valor del deslizador
-  range_value.innerHTML = deslizador.value;
-
-  //-- Situar la imagen original en el canvas
-  //-- No se han hecho manipulaciones todavia
+//--Function ORIGINAL 
+original.onclick = () =>{
+  disabled();
+  canvas.width = img.width;
+  canvas.height = img.height;
   ctx.drawImage(img, 0,0);
+}
+
+//--Function color botton 
+color.onclick = () => {
+  enabled();
+  ctx.drawImage(img, 0,0);
+
+
+    R.value = 255;
+    Range_Value_R.innerHTML = R.value;
+    G.value = 255;
+    Range_Value_G.innerHTML = G.value;
+    B.value = 255;
+    Range_Value_B.innerHTML = B.value;
+}
+
+
+//--Function  MIRROR BOTTON 
+mirror.onclick =() => {
+  disabled();
+
+  ctx.drawImage(img, 0,0);
+  ctx.translate(img.width,0);
+  ctx.scale(-1,1);
+  ctx.drawImage(img, 0, 0);
+}
+
+//--Function NEGATIVE BOTTON
+negative.onclick = () =>{
+  disabled();
+
+  ctx.drawImage(img, 0, 0);
 
   //-- Obtener la imagen del canvas en pixeles
   let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
   //-- Obtener el array con todos los píxeles
   let data = imgData.data
-
-  //-- Obtener el umbral de rojo del desliador
-  umbral = deslizador.value
-
-  //-- Filtrar la imagen según el nuevo umbral
-  for (let i = 0; i < data.length; i+=4) {
-    if (data[i] > umbral)
-      data[i] = umbral;
+  for (let i = 0; i < data.length; i+=4){
+    var R = data[i];
+    var G = data[i+1];
+    var B = data[i+2];
+    data[i] = 255 - R;
+    data[i+1] = 255 - G;
+    data[i+2] = 255 - B;
   }
-
-  //-- Poner la imagen modificada en el canvas
   ctx.putImageData(imgData, 0, 0);
 }
 
 
 
+//--Function Gray Botton Gray 
+gray.onclick = () => {
+  enabled();
 
-//--Funcion creada para las diferentes elecciones de imagenes 
-image1.onclick = () => {
-  img.src="marrueco1.JPG";
+  //-- Obtener la imagen del canvas en pixeles
+  let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  //-- Obtener el array con todos los píxeles
+  let data = imgData.data
+  //-- Filtrar la imagen según el nuevo umbral
+  for (let i = 0; i < data.length; i+=4) {
+    var R = data[i];
+    var G = data[i+1];
+    var B = data[i+2];
+    var brillo = (3 * R + 4 * G + B)/8
+    brillo = data[i] = data[i+1] = data[i+2];
+    }
+    // imagen modificada en el canvas
+    ctx.putImageData(imgData, 0, 0);
 }
-image2.onclick = () => {
-  img.src="marruecos2.JPG";
+
+function rotar(select){
+  if (select == "horizontal") {
+    mode = [img.width,0,-1,1]
+  } else {
+    mode = [0,img.height, 1, -1]
+  }
+  ctx.translate(mode[0], mode[1]);
+  ctx.scale(mode[2], mode[3]);
+  ctx.drawImage(img, 0, 0);
 }
-image3.onclick = () => {
-  img.src="paris.JPG";
-}
+
+
 
 console.log("Fin...");
