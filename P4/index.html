@@ -9,56 +9,55 @@
     <title>  </title>
 </head>
 <body>
-<div id="contenedor">
-    <div id="cabecera"></div>
-    <H1>PROCESADOR DE IMAGENES</H1>
 
-    <div id="contenido">
-        <div class="original">
+    <H1>PROCESADOR DE IMAGENES</H1>
+<div class="contenedor">
+    <div class="contenido">
+        <div id="original">
             <p>IMAGEN ORIGINAL</p>
-            <img src="marruecos1.JPG" id="imagesrc">
+            <img src="IMG.JPG" id="imagesrc">
         </div>
-        
-        <div class="manipulada">
+        <div id="manipulada">
         <p>IMAGEN MANIPULADA</p>
         <canvas id="canvas"></canvas>
         </div>
-
+        
     </div>
-
-    <div id="menu">
-        <button id = "image1"><img src="marruecos1.JPG" width="250px"/></button>
-        <br><br>
-        <button id = "image2"><img src="IMG.JPG" width="250px"/></button>
-        <br><br>
-        <button id = "image3"><img src="paris.JPG" width="250px"/></button>
-
+    <div class="menu">
         <div class="botones">
             <br>
             <button type="button" id ="original">ORIGINAL</button>
+            <br>
             <button type="button" id ="negative">NEGATIVO</button>
+            <br>
             <button type="button" id ="color">COLORES</button>
+            <br>
             <button type="button" id ="mirror">ESPEJO</button>
+            <br>
             <button type="button" id ="gray">ESCALA DE GRISES</button>
         </div>
-    </div>
 
-    <div id="pie">
         <div id="deslizador">
-        <br>
-            <P>Establece el umbral de ROJO:</P>
-            <input type="range" id="R" min="0" max="255" value="255"/>
-            <p id="Range_Value_R">00</p>
-
-            <P>Establece el umbral de VERDE:</P>
-            <input type="range" id="G" min="0" max="255" value="255"/>
-            <p id="Range_Value_G">00</p>
-            
-            <P>Establece el umbral de AZUL:</P>
-            <input type="range" id="B" min="0" max="255" value="255"/>
-            <p id="Range_Value_B">00</p>
+                <p>Establece el umbral de ROJO:</p>
+                <input type="range" id="R" min="0" max="255" value="255"/>
+                <p id="Range_Value_R">00</p>
+                <p>Establece el umbral de VERDE:</p>
+                <input type="range" id="G" min="0" max="255" value="255"/>
+                <p id="Range_Value_G">00</p>
+                <p>Establece el umbral de AZUL:</p>
+                <input type="range" id="B" min="0" max="255" value="255"/>
+                <p id="Range_Value_B">00</p>
+        </div>
     </div>
-</div>
+    
+    <div class="opciones">
+        <p1>Seleccione la imagen a procesar</p1>
+        <button id = "image1"><img src="IMG.JPG" width="200px"/></button>
+        <button id = "image2"><img src="paris.JPG" width="200px"/></button>
+        <button id = "image3"><img src="templo.JPG" width="200px"/></button>
+ 
+    </div>
+
 </div>
 </body>
 </html>

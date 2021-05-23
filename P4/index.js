@@ -8,7 +8,6 @@ const ctx = canvas.getContext('2d');
 //--BOTONES
 const imagen1 = document.getElementById('image1');
 const imagen2 = document.getElementById('image2');
-const imagen3 = document.getElementById('image3');
 
 const original = document.getElementById('original');
 const negative = document.getElementById('negative');
@@ -54,14 +53,15 @@ img.onload = function () {
 
 
 //--Funcion creada para las diferentes elecciones de imagenes 
+
 image1.onclick = () => {
-  img.src="marrueco1.JPG";
-}
-image2.onclick = () => {
   img.src="IMG.JPG";
 }
-image3.onclick = () => {
+image2.onclick = () => {
   img.src="paris.JPG";
+}
+image3.onclick = () => {
+  img.src="templo.JPG";
 }
 
 function colors(){
