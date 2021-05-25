@@ -1,0 +1,30 @@
+
+El programa tiene dos estados. Uno es el inicial, donde no se está 
+retransmitiendo nada (y en el vídeo superior se muestra la imagen de test). 
+El otro es cuando las fuentes están activadas. 
+Utiliza una variable de estado para que se pueda cambiar de un estado a otro 
+cuando convenga. Si se está en el estado inicial y se aprieta el botón vídeo 1 
+no debería suceder nada (en el Ejemplo 1 la imagen de test se elimina)
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="ej2.js" defer></script>
+    <title>Ejemplo 2</title>
+</head>
+<body>
+    <video id="directo"></video>
+    <p></p>
+    <video id="video1"></video>
+    <p></p>
+    <input type="button" value="Video 1" id="btn_video1">
+
+    <input type="button" value="Video 2" id="btn_video2">
+    <input type="button" value="Test" id="btn_test">
+    <p></p>
+    <input type="button" value="Fuentes ON" id="btn_src_on">
+</body>
+</html>
