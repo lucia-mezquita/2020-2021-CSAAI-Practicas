@@ -2,168 +2,225 @@ console.log("Ejecutando JS...");
 
 const canvas = document.getElementById("canvas");
 
+//-- Sonidos
+const pong_raqueta = new Audio("pong-raqueta.mp3");
+const pong_rebote = new Audio("pong-rebote.mp3");
+const pong_tanto = new Audio("pong-tanto.mp3");
+
+
 //-- Definir el tamaño del canvas
-canvas.width = 600;
-canvas.height = 700;
+canvas.width = 500;
+canvas.height = 600;
+
 
 //-- Obtener el contexto del canvas
 const ctx = canvas.getContext("2d");
 
-//--Estados
-const Estado = {
-    Init: 0,
-    Start: 1,
-    play: 2,
 
+//-- Posiciones iniciales
+var ball_Radius = 7;
+var ball_x = canvas.width/2;
+var ball_y = canvas.height-30;
+var dx = 3;
+var dy = -3;
+var paddleHeight = 10;
+var paddleWidth = 75;
+var paddleX = (canvas.width-paddleWidth)/2;
+
+// PADDLE MOVEMENT
+var rightPressed = false;
+var leftPressed = false;
+
+
+
+//-- Var ladrillos (bricks)
+var ladrillosRow = 6;
+var ladrillosColumn = 9;
+var ladrillosWidth = 65;
+var ladrillosHeight = 20;
+var ladrillosPadding = 10;
+var ladrillosmarginTop = 35;
+var ladrillosmarginLeft = 25;
+
+//-Score (puntuacion)
+var score = 0;
+
+//--Vidas
+var lives = 3;
+
+
+
+document.addEventListener("keydown", keyDownHandler, false);
+document.addEventListener("keyup", keyUpHandler, false);
+
+function keyDownHandler(e) {
+    if(e.keyCode == 68) {
+        rightPressed = true;
+    }
+    else if(e.keyCode == 65) {
+        leftPressed = true;
+    }
+    else if(e.keyCode == 32) {
+        playing = true;
+        dx = 2;
+        dy = -2;
+        ball_x = paddleX+paddleWidth/2;
+        ball_y = canvas.height-30;
+    }
+    
+    }
+function keyUpHandler(e) {
+    if(e.keyCode == 68) {
+        rightPressed = false;
+    }
+    else if(e.keyCode == 65) {
+        leftPressed = false;
+    }
 }
 
-//-- Posición del elemento a animar
-let x_bola = 300;
-let y_bola = 600;
-let r_bola = 5;
-let x_pala = (canvas.width-80)/2;
-let y_pala = canvas.height-20;
-
-
-//--Dibujar ladrillos
-let X_ladrillo = 10;
-let Y_ladrillo = 10;
-
-const LADRILLO = {
-    F: 7,
-    C: 11,
-    W: 43, 
-    H: 20, 
-    Padding: 10, 
-    Visible: true 
+function drawBricks() {
+    for(i=0; i<ladrillosColumn; i++) {
+        for(j=0; j<ladrillosRow; j++) {
+            if(ladrillos[i][j].status == 1) {
+                var ladrillosX = (j*(ladrillosWidth+ladrillosPadding))+ladrillosmarginLeft;
+                var ladrillosY = (i*(ladrillosHeight+ladrillosPadding))+ladrillosmarginTop;
+                ladrillos[i][j].x = ladrillosX;
+                ladrillos[i][j].y = ladrillosY;
+                ctx.beginPath();
+                ctx.rect(ladrillosX, ladrillosY, ladrillosWidth, ladrillosHeight);
+                ctx.fillStyle = "#dfa75b";
+                ctx.fill();
+                ctx.closePath();
+            }
+        }
+    }
 };
 
-const ladrillos = [];
 
-// ladrillos
-for(let i = 0; i < LADRILLO.F; i++){
-    ladrillos[i] = []; // inicializa filas
-    for(let j = 0; j < LADRILLO.C; j++){
-        ladrillos[i][j] = {
-            x: X_ladrillo + (LADRILLO.W + LADRILLO.Padding) * j,
-            y: Y_ladrillo + (LADRILLO.H + LADRILLO.Padding) * i,
-            W: LADRILLO.W,
-            H: LADRILLO.H,
-            Padding: LADRILLO.Padding,
-            Visible: LADRILLO.Visible
+function drawBall() {
+    ctx.beginPath();
+    ctx.arc(ball_x, ball_y, ball_Radius, 0, Math.PI*2);
+    ctx.fillStyle = 'rgb(243, 12, 12)';
+    ctx.fill();
+    ctx.closePath();
+};
+
+
+function drawPaddle() {
+    ctx.beginPath();
+    ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
+    ctx.fillStyle = "#9c9c9c";
+    ctx.fill();
+    ctx.closePath();
+};
+
+var ladrillos = [];
+for(i = 0; i < ladrillosColumn; i++) {
+    ladrillos[i] = [];
+    for(j = 0; j < ladrillosRow; j++) {
+        ladrillos[i][j] = { 
+            x: 0, y: 0, 
+            status: 1 
         };
     }
 }
 
-//-- Movimiento pala
-var move = window.event;
-
-//-- Velocidad horizontal del objeto
-let velx = 2;
-let vely = 2;
-
-//--Funcion bola
-function bola(){
-    ctx.beginPath();
-    ctx.arc(x_bola, y_bola, r_bola, 0, 2 * Math.PI);
-
-    //-- Dibujar
-    ctx.fillStyle = 'yellow';
-
-    //-- Rellenar
-    ctx.fill();
-
-    //-- Dibujar el trazo
-    ctx.stroke()
-  ctx.closePath();
-}
-
-//--Funcion pala
-function pala(){
-    ctx.beginPath();
-    
-    //ctx.rect((canvas.width-80)/2, canvas.height-20, 80, 20)
-    ctx.rect(x_pala, y_pala, 80, 20);
-
-    //-- Dibujar
-    ctx.fillStyle = 'grey';
-
-    //-- Rellenar
-    ctx.fill();
-
-    //-- Dibujar el trazo
-    ctx.stroke()
-  ctx.closePath();
-}
-
-//-- Funcion principal de animacion
-function update() 
-{
-  console.log("test");
+function drawScore() {
+    ctx.font = "16px Bowlby One";
+    ctx.fillStyle = "#230c33";
+    ctx.fillText("Score: "+score,canvas.width-65, 20);
+};
 
 
-  //-- Algoritmo de animacion:
-  //-- 1) Actualizar posiciones de los elementos
-  //-- (física del movimiento rectilineo uniforme)
-  //-- Comprobar colisión con borde derecho
-  
-   //-- Condicion de rebote en extremos del canvas
-   if (x_bola < 0 || x_bola >= (canvas.width) ) {
-    velx = -velx;
-  }
-  if (y_bola < 0 || ((x_bola >= x_pala && x_bola < (x_pala+80)) && y_bola >= y_pala  && y_bola < (y_pala + 20))) {
-    vely = -vely;
-  }
-  //|| y_bola >= (canvas.height-20)
-  //X_bola >= X_bloque && X_bola < (X_bloque+80+10) && Y_bola >= (Y_bloque-10) && Y_bola < (Y_bloque+20+10)
-  // Actualizar la posición
-  x_bola = x_bola + velx;
-  y_bola = y_bola - vely;
-  
+function drawLives() {
+    ctx.font = "15px Bowlby One";
+    ctx.fillStyle = "#230c33";
+    ctx.fillText("Lives: "+lives, 8, 20); 
+};
 
-  //-- 2) Borrar el canvas
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
- // dibujamos los ladrillos
-    for(let i = 0; i < LADRILLO.F; i++){
-        for(let j = 0; j < LADRILLO.C; j++){
-            // si es viisble, se pinta
-            if(ladrillos[i][j].Visible){
-                ctx.beginPath();
-                ctx.rect(ladrillos[i][j].x, ladrillos[i][j].y, LADRILLO.W, LADRILLO.H);
-                ctx.fillStyle ='blue';
-                ctx.fill();
-                ctx.closePath;
+function collision() {
+    for(i = 0; i < ladrillosColumn; i++) {
+        for(j = 0; j < ladrillosRow; j++) {
+            var b = ladrillos[i][j];
+            if(b.status == 1) {
+                if(ball_x > b.x && ball_x < b.x+ladrillosWidth && ball_y > b.y && ball_y < b.y+ladrillosHeight) {
+                    dy = -dy;
+                    b.status = 0;
+                    score++;
+                    if(score == ladrillosRow*ladrillosColumn) {
+                        alert("HAS GANADO, CONGRATS!");
+                        document.location.reload();
+                    }
+                    //REPRODUCIR SONIDO
+        pong_rebote.currentTime = 0;
+        pong_rebote.play();
+                }
             }
         }
     }
-  //-- 3) Dibujar los elementos visibles
-  //---BOLA
-  bola();
-  
-  //--PALA
-  pala();
+};
 
-  //-- 4) Volver a ejecutar update cuando toque
-  requestAnimationFrame(update);
-
-  //--Movimiento de la pala 
-  window.onkeydown = (e) => {
-      console.log();
-      
-      switch (e.key){
-        case "ArrowRight":
-            if(x_pala<=canvas.width-100){
-                 x_pala = x_pala + 25;}
-             break;
-        case "ArrowLeft":
-            if(x_pala>0){
-                x_pala = x_pala-25;}
-            break;
-        case " ":
-            Estado.Init;
-      }
+//-- Funcion principal de animacion
+function update() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawBricks();
+    drawBall();
+    drawPaddle();
+    drawScore();
+    drawLives();
+    collision();
+    
+     
+    if(ball_x + dx > canvas.width-ball_Radius || ball_x + dx < ball_Radius) {
+        dx = -dx;
+        //REPRODUCIR SONIDO
+        pong_rebote.currentTime = 0;
+        pong_rebote.play();
     }
+
+    if(ball_y + dy < ball_Radius) {
+        dy = -dy;
+        //REPRODUCIR SONIDO
+        pong_rebote.currentTime = 0;
+        pong_rebote.play();
+    }
+    else if(ball_y + dy > canvas.height-ball_Radius) {
+        if(ball_x > paddleX && ball_x < paddleX + paddleWidth) {
+            dy = -dy;
+            //REPRODUCIR SONIDO
+            pong_rebote.currentTime = 0;
+            pong_rebote.play();
+        }
+        else {
+            lives--;
+            if(!lives) {
+                alert("GAME OVER");
+                document.location.reload();
+            }
+            else {
+                ball_x = canvas.width/2;
+                ball_y = canvas.height-30;
+                dx = 5;
+                dy = -5;
+                paddleX = (canvas.width-paddleWidth)/2;
+                //REPRODUCIR SONIDO
+                pong_rebote.currentTime = 0;
+                pong_rebote.play();
+            }
+        
+        }
+    }
+    
+    if(rightPressed && paddleX < canvas.width-paddleWidth) {
+        paddleX += 5;
+    }
+    else if(leftPressed && paddleX > 0) {
+        paddleX -= 5;
+    }
+    
+    ball_x += dx;
+    ball_y += dy;
+    requestAnimationFrame(update);
 }
 
-//-- ¡Que empiece la función!
 update();

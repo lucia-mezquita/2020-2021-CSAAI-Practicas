@@ -16,3 +16,4 @@ canvas.height = 600;
 //-- Obtener el contexto del canvas
 const ctx = canvas.getContext("2d");
 
+
