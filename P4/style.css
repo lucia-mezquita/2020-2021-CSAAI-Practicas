@@ -3,26 +3,26 @@ body {
   }
 
 p{
-    font-size: 15px;
-    font-style: italic;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    text-align: center;
-  
-  }  
-  
-  h1 { background-color: khaki;
-    padding-top: 20px;
-    padding-bottom: 10px;
-    text-align: center;
-    font-family: 'SF Comic Script Shaded', arial;
-    font-size: 48px;
-    text-shadow: 4px 4px 4px #aaa;
-      width: 800px;
-      height: 60px;
-      margin: 10px;
-      padding:10px;
-      border-radius: 50px;
-    }
+  font-size: 15px;
+  font-style: italic;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
+
+}
+
+h1 { background-color: khaki;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  text-align: center;
+  font-family: 'SF Comic Script Shaded', arial;
+  font-size: 48px;
+  text-shadow: 4px 4px 4px #aaa;
+    width: 800px;
+    height: 60px;
+    margin: 10px;
+    padding:10px;
+    border-radius: 50px;
+  }
 
 .menu { grid-area: menu; }
 .contenido { grid-area: main; }
@@ -74,6 +74,7 @@ p{
     margin-top: 15px;
     padding-top: 15px;
     border-radius: 20px;
+
 }
 
 #deslizador {
