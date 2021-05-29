@@ -2,13 +2,13 @@ body {
   background-color:coral;
   }
 
-  p{
+p{
     font-size: 15px;
     font-style: italic;
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: center;
   
-  }
+  }  
   
   h1 { background-color: khaki;
     padding-top: 20px;
@@ -65,6 +65,7 @@ body {
     padding: 10px 20px;
     text-align: center;
     font-size: 12px;
+    font-family: 'Strong Type', arial;
     margin: 4px 2px;
     transition-duration: 0.4s;
     cursor: pointer;
