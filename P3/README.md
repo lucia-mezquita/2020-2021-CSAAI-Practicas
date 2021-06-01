@@ -2,7 +2,7 @@
 
 ¡¡ A JUGAR AL BREAKOUT!!
 
-Es recomentable que el navegador sea Chrome o Firefox.
+Es recomendable que el navegador sea Chrome o Firefox.
 
 Para acceder a el tienes que pinchar en el siguiente enlace:
 
