@@ -55,13 +55,13 @@ img.onload = function () {
 //--Funcion creada para las diferentes elecciones de imagenes 
 
 image1.onclick = () => {
-  img.src="IMG.JPG";
+  img.src="popart1.jpg";
 }
 image2.onclick = () => {
-  img.src="paris.JPG";
+  img.src="popart2.jpg";
 }
 image3.onclick = () => {
-  img.src="templo.JPG";
+  img.src="popart3.jpg";
 }
 
 function colors(){
@@ -189,7 +189,7 @@ negative.onclick = () =>{
 
 //--Function Gray Botton Gray 
 gray.onclick = () => {
-  enabled();
+  disabled();
 
   //-- Obtener la imagen del canvas en pixeles
   let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
