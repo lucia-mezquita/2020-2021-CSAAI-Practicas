@@ -13,7 +13,7 @@ El juego se inializara nada mas pinchar el enlace, si se quiere sacar de nuevo, 
 Movimientos de la raqueta : 
 
     DERECHA = TECLA A
-    IZQUIERDA = TECLA S
+    IZQUIERDA = TECLA D
 
 Movimientos de la pelota: se inicializa automaticamente
 
