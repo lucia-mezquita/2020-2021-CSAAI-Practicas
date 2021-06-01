@@ -1,6 +1,6 @@
  # Práctica 3
 
-¡¡ A JUGAR AL BREAKOUT!!
+ BREAKOUT
 
 Es recomendable que el navegador sea Chrome o Firefox.
 
@@ -22,11 +22,10 @@ Movimientos de la pelota: se inicializa automaticamente
 
 En el BREAKOUT tendrás 3 valiosas vidas! 
 
-Cuidado!, cada vez que pierdas una vida, la pelota irá más rápido!
+Cuidado! Cada vez que pierdas una vida, la pelota irá más rápido!
 
-La puntiación: Score aumentara cada vez que se destruya un ladrillo.
+La puntuación: Score aumentará cada vez que se destruya un ladrillo.
 
 SUERTE:)
 
-
-
+¡¡ A JUGAR !!
