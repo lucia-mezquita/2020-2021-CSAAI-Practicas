@@ -24,6 +24,8 @@ En el BREAKOUT tendrás 3 valiosas vidas!
 
 Cuidado!, cada vez que pierdas una vida, la pelota irá más rápido!
 
+La puntiación: Score aumentara cada vez que se destruya un ladrillo.
+
 SUERTE:)
 
 
